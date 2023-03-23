@@ -1,0 +1,31 @@
+<h1>{{ leaf.name }}</h1>
+<p> {{leaf.description}} </p>
+
+{% if user.is_authenticated %}
+    {{ status }}
+<br /> <br />
+{% endif %}
+Key points:
+<ul>
+    {% for keypoint in leaf.keypoint_set.all %}
+    <li>{{ keypoint.text }}</li>
+    {% endfor %}
+</ul>
+Courses to study:
+<ul>
+    {% for course in courses %}
+    <li> <a href="/edumarket/{{course.id}}">{{ course.name }} </a> / {{ course.author }}</li>
+    {% endfor %}
+</ul>
+Prerequisites:
+<ul>
+    {% for p_leaf in parent_leaves %}
+    <li> <a href="/tree/{{p_leaf.id}}"> {{ p_leaf.name }} </a> </li>
+    {% endfor %}
+</ul>
+Opens:
+<ul>
+    {% for c_leaf in children_leaves %}
+    <li><a href="/tree/{{c_leaf.id}}"> {{ c_leaf.name }} </a></li>
+    {% endfor %}
+</ul>

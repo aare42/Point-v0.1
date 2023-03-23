@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {% if course_list %}
+    <ul>
+        {% for course in course_list %}
+        <li><a href="/edumarket/{{ course.id }}/">{{ course.name }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No courses are available.</p>
+    {% endif %}
+    {% load static %}
+</body>
+</html>

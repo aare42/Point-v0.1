@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE-edge">
+<title> Home </title>
+</head>
+<body>
+	<h3> Welcome </h3>
+	{% if user.is_authenticated %}
+	<a href="/portfolio"> <button type="submit"> Portfolio </button></a>
+	<a href="/accounts/signout"> <button type="submit">  Logout  </button> </a>
+	{% else %}
+	<a href="/accounts/register"> <button type="submit">  Register  </button> </a>
+	<a href="/accounts/signin"> <button type="submit">  Login  </button> </a>
+	{% endif %}
+</body>
+</html>

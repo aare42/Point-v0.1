@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Portfolio </title>
+    <style>
+        table, th, td {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            background-color: #96D4D4;
+        }
+
+        h3 {
+            color: darkblue;
+        }
+
+        h4 {
+            color: darkgreen;
+        }
+
+        a {
+            color:#000000;
+        }
+
+        select {
+            // A reset of styles, including removing the default dropdown arrow appearance: none;
+            // Additional resets for further consistency background-color: transparent;
+            border: none;
+            padding: 0 1em 0 0;
+            margin: 0;
+            width: 100%;
+            font-family: inherit;
+            font-size: inherit;
+            cursor: inherit;
+            line-height: inherit;
+        }
+
+    </style>
+</head>
+<body>
+    <h3> Leaves </h3>
+    <table>
+        {% for sleaf in sleaves_list %}
+        <tr>
+            <td> <h4> <a href="/tree/{{ sleaf.leaf.id }}/">{{ sleaf.leaf.name }} </a> </h4> </td> 
+            <td> {{ sleaf.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3> Courses </h3>
+    <table>
+            {% for course in student_courses_list %}
+            <tr> 
+                <td> <h4> <a href="/edumarket/{{ course.id }}"> {{ course.name }} </a> </h4> </td> 
+                <td>{{course.author}} </td> 
+            </tr>
+            {% endfor %}
+    </table>
+    <h3> <a href="/contracts"> Contracts management </a> <br /> </h3>
+    <h3> <a href="/accounts"> Home </a> </h3>
+</body>
+</html>

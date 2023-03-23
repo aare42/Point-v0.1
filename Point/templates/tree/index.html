@@ -1,0 +1,13 @@
+{% if latest_leaves_list %}
+<ul>
+    {% for leaf in latest_leaves_list %}
+    <li><a href="/tree/{{ leaf.id }}/">{{ leaf.name }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No leaves are available.</p>
+{% endif %}
+
+<script src="tree.js"></script>
+
+{% load static %}

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    {{course.name}} <br />
+    By {{course.author}} <br />
+    {{course.description}} <br />
+    Price: {{course.price}} <br />
+    <br /> <br />
+    Leaves inside:
+    <ul>
+        {% for leaf in leaves_inside %}
+        <li> <a href="/tree/{{leaf.id}}">{{ leaf.name }} </a> </li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Subscribe</button>
+    </form>
+    {% endif %}
+
+</body>
+</html>
