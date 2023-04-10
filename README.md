@@ -10,6 +10,7 @@
 
 https://drive.google.com/file/d/1682SUNQv8Xxi0SAY9iLmtTkMXw6MpQs0/view?usp=share_link - посилання на останню версію БД
 по суті:
+
 Користувач django.auth_user:
 
 ![image](https://user-images.githubusercontent.com/126251095/230977584-2dafdb4d-5a48-4ee8-91e9-c88d07259ccf.png)
@@ -17,12 +18,15 @@ https://drive.google.com/file/d/1682SUNQv8Xxi0SAY9iLmtTkMXw6MpQs0/view?usp=share
 Листок (тема):
 
 ![image](https://user-images.githubusercontent.com/126251095/230978616-ab01848c-67f1-455c-8cd4-a0415bb0a24c.png)
+
 Тип листка: (теорія, практика, проект)
 
 ![image](https://user-images.githubusercontent.com/126251095/230978834-1dd29a8d-a103-4581-bda5-f9d79dc2c9ad.png)
+
 Key_point (контрольне питання):
 
 ![image](https://user-images.githubusercontent.com/126251095/230978697-b5116165-5cf2-481d-ab9f-429abc9ab860.png)
+
 Зв'язки між листками (ребра графа, ManyToMany Leaf-Leaf):
 
 ![image](https://user-images.githubusercontent.com/126251095/230979086-b6d21682-dceb-4866-bb0d-89e2ac466c28.png)
@@ -30,14 +34,17 @@ Key_point (контрольне питання):
 Студент: (OneToOne з User)
 
 ![image](https://user-images.githubusercontent.com/126251095/230978342-bfa017aa-76dc-4198-a409-e4b2015b87f3.png)
+
 Студентський листок: (копія листка для кожного з студентів, зберігає в собі статус вивчення, поєднує дерево і студента)
 
 ![image](https://user-images.githubusercontent.com/126251095/230979556-eb54db95-5560-448d-93e1-9b61956442c7.png)
+
 Статус студентського листка: ("not interested", "interested", "learning", "learned", "validated") 
 
 ![image](https://user-images.githubusercontent.com/126251095/230979632-8749930b-4d3a-4621-bd43-c922c69c2d70.png)
 
 тут потрібна ще одна сутність, поки не заклав - статус validated свідчить про те що тему вивчено і підтверджено якимось освітнім сервісом. Інформацію про те хто підтвердив потрібно якось зберігати. це може бути щось типу:
+
 Диплом:
 - id
 - студентський листок (з якого можна потім витягнути студента)
@@ -46,9 +53,11 @@ Key_point (контрольне питання):
 Освітній сервіс:
 
 ![image](https://user-images.githubusercontent.com/126251095/230980540-adf2a617-1519-43bd-bde3-d5bd08e2e9ea.png)
+
 Курс:
 
 ![image](https://user-images.githubusercontent.com/126251095/230980630-03ad2088-2c0d-464b-b65e-c05ecabc4e4c.png)
+
 Листки, що входять до курсу: (сутність, що зв'язує курс і листки, ManyToMany Leaf-Course)
 
 ![image](https://user-images.githubusercontent.com/126251095/230980707-0566e462-766d-49ed-88f9-6da53d83f65f.png)
@@ -56,9 +65,11 @@ Key_point (контрольне питання):
 Контракт: (сутність, що зв'язує курс і студента)
 
 ![image](https://user-images.githubusercontent.com/126251095/230981109-865bfa43-9fd1-41cd-a06a-07d70110c470.png)
+
 Статус контракту: (requested, rejected, active, fail, success, terminated)
 
 ![image](https://user-images.githubusercontent.com/126251095/230981334-f70bf94e-d7df-48d7-a31f-823ef71db5b8.png)
+
 Зміна статусу контракту: (сутність, яка генерується щоразу коли статус змінюється. зберігає контракт, дату зміни, новий статус, ініціатора (user). знайшовши по даті останню можна знайти актуальний статус)
 
 ![image](https://user-images.githubusercontent.com/126251095/230981437-5d55376d-8f48-4883-bc88-92d97501cbde.png)
